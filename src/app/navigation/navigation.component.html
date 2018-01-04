@@ -1,0 +1,15 @@
+
+<button mat-button [matMenuTriggerFor]="admin">Admin</button>
+<button mat-button [matMenuTriggerFor]="dashboard">Dashboard</button>
+
+<mat-menu #admin="matMenu">
+<button mat-menu-item>User</button>
+<button mat-menu-item>group</button>
+</mat-menu>
+
+<mat-menu #dashboard="matMenu">
+<button mat-menu-item>Transactions</button>
+<button mat-menu-item>Users</button>
+<button mat-menu-item>Stats</button>
+<button mat-menu-item>Other</button>
+</mat-menu>

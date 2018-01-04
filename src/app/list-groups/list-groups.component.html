@@ -1,0 +1,34 @@
+<mat-toolbar color='primary'>
+  <span>Groups</span>
+</mat-toolbar>
+<div class="example-container mat-elevation-z8">
+
+
+  <mat-table #table [dataSource]="dataSource" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <!-- State Column -->
+    <ng-container matColumnDef="members">
+      <mat-header-cell *matHeaderCellDef>Members</mat-header-cell>
+      
+      <mat-cell *matCellDef="let row">
+      	<li *ngFor="let user of row.users"> {{user.firstName}} {{user.lastName}} {{user.address}}</li>
+      </mat-cell>
+      
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [length]="resultsLength" [pageSize]="30">
+  </mat-paginator>
+</div>
